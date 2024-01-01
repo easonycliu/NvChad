@@ -45,11 +45,27 @@ local options = {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      i = { 
+        ["<C-n>"] = require('telescope.actions').cycle_history_next,
+        ["<C-p>"] = require('telescope.actions').cycle_history_prev,
+        ["<C-j>"] = require('telescope.actions').move_selection_next,
+        ["<C-k>"] = require('telescope.actions').move_selection_previous,
+      },
+      n = { 
+        ["q"] = require("telescope.actions").close, 
+        ["<C-n>"] = require('telescope.actions').cycle_history_next,
+        ["<C-p>"] = require('telescope.actions').cycle_history_prev,
+        ["<C-j>"] = require('telescope.actions').move_selection_next,
+        ["<C-k>"] = require('telescope.actions').move_selection_previous,
+      },
+    },
+    history = {
+      path = '~/.local/share/nvim/telescope_history',
+      limit = 100,
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "live_grep_args", "smart_history" },
   extensions = {
     fzf = {
       fuzzy = true,
