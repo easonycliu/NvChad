@@ -2,6 +2,7 @@ local options = {
   ensure_installed = { 
     "lua-language-server",
     "python-lsp-server",
+		"rust-analyzer"
   }, -- not an option from mason.nvim
 
   PATH = "skip",
