@@ -10,16 +10,16 @@ lspconfig.pylsp.setup {
   filetypes = { "python" },
   single_file_support = true,
   cmd = lspcontainers.command("pylsp", {
-    image = "easonliu12138/mysql_doxygen:v1.3",
+    image = "easonliu12138/mysql_doxygen:v1.4",
     entry = "pylsp"
   }),
   root_dir = require("lspconfig.util").root_pattern(".git", vim.fn.getcwd()),
   settings = {
     plugins = {
       -- formatter options
-      black = { enabled = true },
+      black = { enabled = false },
       autopep8 = { enabled = false },
-      yapf = { enabled = false },
+      yapf = { enabled = true },
       -- linter options
       pylint = { enabled = true, executable = "pylint" },
       ruff = { enabled = false },
