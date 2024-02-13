@@ -49,7 +49,7 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+-- opt.whichwrap:append "<>[]hl"
 
 g.mapleader = " "
 
@@ -107,6 +107,11 @@ autocmd("BufWritePost", {
     require("base46").load_all_highlights()
     -- vim.cmd("redraw!")
   end,
+})
+
+autocmd({"CursorMoved"}, {
+  pattern = "*",
+  command = "set noexpandtab"
 })
 
 -------------------------------------- commands ------------------------------------------
