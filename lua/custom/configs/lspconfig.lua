@@ -48,3 +48,20 @@ lspconfig.rust_analyzer.setup {
 	root_dir = lspconfig.util.root_pattern("Cargo.toml")
 }
 
+-- Need clang >= 11 to be set up
+lspconfig.clangd.setup {
+	on_attach = on_attach, 
+	capabilities = capabilities,
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+	cmd = { "clangd" },
+	single_file_support = true,
+	root_dir = lspconfig.util.root_pattern(
+		".clangd",
+		".clang-tidy",
+		".clang-format",
+		"compile_commands.json",
+		"compile_flags.txt",
+		"configure.ac",
+		".git"
+	)
+}
