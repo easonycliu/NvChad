@@ -10,7 +10,7 @@ lspconfig.pylsp.setup {
   filetypes = { "python" },
   single_file_support = true,
   cmd = lspcontainers.command("pylsp", {
-    image = "easonliu12138/mysql_doxygen:v1.4",
+    image = "easonliu12138/pylsp_container:v1.0",
     entry = "pylsp"
   }),
   root_dir = require("lspconfig.util").root_pattern(".git", vim.fn.getcwd()),
