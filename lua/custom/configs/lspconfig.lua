@@ -53,7 +53,10 @@ lspconfig.clangd.setup {
 	on_attach = on_attach, 
 	capabilities = capabilities,
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-	cmd = { "clangd" },
+	cmd = lspcontainers.command("clangd", {
+		image = "easonliu12138/mysql_llvm:v1.1",
+		entry = "clangd"
+	}),
 	single_file_support = true,
 	root_dir = lspconfig.util.root_pattern(
 		".clangd",
