@@ -7,15 +7,12 @@ local plugins = {
     end
   },
   {
-    "github/copilot.vim",
-    -- Lazy load when event occurs. Events are triggered
-    -- as mentioned in:
-    -- https://vi.stackexchange.com/a/4495/20389
-    -- event = "InsertEnter",
-    -- You can also have it load at immediately at
-    -- startup by commenting above and uncommenting below:
-    lazy = false,
-    opts = require("custom.configs.copilotconfig").copilot,
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require "custom.configs.copilotconfig"
+    end,
   },
   {
     "liuyc1515/lspcontainers.nvim",
